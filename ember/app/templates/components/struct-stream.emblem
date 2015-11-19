@@ -1,0 +1,63 @@
+if isPlaying
+  strobe-player isPlaying=isPlaying play_recording=play_recording stream=stream width="100%" height="100%"
+else
+  .offline-player
+    =stream.user.username
+    |  is not currently streaming
+    
+if stream.isLive
+  struct-viewers stream=stream
+else
+  .col-md-12.nopadding
+    struct-recordings recordings=stream.recordings play_recording=play_recording
+
+.pad-top
+  .col-md-6
+    div
+      .media.nopadding
+        .pull-left
+          img.media-object.thumbnail src=stream.user.avatar_url
+        .media-body
+          h4.media-heading
+            =stream.user.username
+
+  .col-md-6.nopadding.pad-right
+    struct-channel-card channel=stream.channel
+
+  .clearfix
+
+  .pad-top.padded
+    if editing
+      form submit="updateStream"
+        .col-xs-10
+          .form-group
+            label.col-lg-2.control-label for="inputTitle" Title
+            .col-lg-10
+              Ember.TextField classNames="form-control" placeholder="Topic of stream" value=stream.title
+
+          .form-group
+            label.col-lg-2.control-label for="textArea"  Description
+            .col-lg-10
+              Ember.TextArea class="form-control description" value=stream.description
+          
+          .form-group
+            .col-lg-10.col-lg-offset-2
+              button.btn.btn-primary type="submit" Update
+        .col-xs-2
+          struct-edit-stream-button me=me stream=stream editing=editing
+      
+    else
+      .clearfix 
+      .col-xs-12.nopadding.pad-right
+        share-twitter data-url=stream.publicUrl data-text=stream.shareText data-size="large" data-hashtags="structdottv"
+      .clearfix
+      .col-xs-10.nopadding.pad-right
+        h1
+          = stream.title
+      .col-xs-2.nopadding.pad-right
+        struct-edit-stream-button me=me stream=stream editing=editing
+
+      .col-xs-12.nopadding.pad-right
+          == stream.formattedDescription
+.bottom-spaced
+

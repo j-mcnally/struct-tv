@@ -1,0 +1,3 @@
+#strobe-player
+  if mobile
+    video width="100%" src=stream.streamUrl controls="1"

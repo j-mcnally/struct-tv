@@ -1,0 +1,6 @@
+form submit="sendMessage newmessage"
+  .col-xs-10.nopadding
+    Ember.TextField value=newmessage.body class="form-control" placeholder="Type a message"
+  .col-xs-2.nopadding
+    button.btn.btn-default.btn-sm.form-control
+      | Send

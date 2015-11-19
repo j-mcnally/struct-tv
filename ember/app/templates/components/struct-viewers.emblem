@@ -1,0 +1,8 @@
+.col-xs-6
+  strong
+    | Watching Now: 
+  = stream.viewers_current
+.col-xs-6
+  strong
+    | Total Views: 
+  = stream.viewers_total

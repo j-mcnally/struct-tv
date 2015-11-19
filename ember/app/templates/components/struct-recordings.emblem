@@ -1,0 +1,3 @@
+each rec in recordings
+  div click="play rec" 
+    img src=rec.imagepath height="150"

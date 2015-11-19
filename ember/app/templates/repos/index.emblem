@@ -1,0 +1,13 @@
+h1
+  | My Repos
+
+
+will-paginate pageCount=pageCount curPage=page
+
+ul
+  each repo in content
+    li
+      link-to "organizations.repos.show" organization.slug_name repo.name
+        = repo.name
+
+will-paginate pageCount=pageCount curPage=page

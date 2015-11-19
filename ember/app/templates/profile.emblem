@@ -1,0 +1,32 @@
+.container
+  .row
+    .page-header
+      h1
+        | Edit Profile
+  .row
+    .col-md-12.col-lg-6
+      .well.bs-component
+        form.form-horizontal submit="updateUser"
+          fieldset
+            legend User Info
+            .form-group
+              label.col-lg-2.control-label for="inputUsername" Username
+              .col-lg-10
+                Ember.TextField classNames="form-control" placeholder="username" value=model.username
+
+            .form-group
+              label.col-lg-2.control-label for="inputEmail" Email
+              .col-lg-10
+                Ember.TextField classNames="form-control" placeholder="user@example.com" value=model.email
+                span.help-block We need your email address to notify you when someone you follow goes live. Having a valid email on file is also a requirement for our partner program.
+            .form-group
+              label.col-lg-2.control-label for="inputProfile" Profile
+              .col-lg-10
+                Ember.TextArea class="form-control description" value=model.profile
+
+
+            .form-group
+              .col-lg-10.col-lg-offset-2
+                button.btn.btn-primary type="submit" Save
+    .col-md-12.col-lg-6
+      == model.formattedProfile

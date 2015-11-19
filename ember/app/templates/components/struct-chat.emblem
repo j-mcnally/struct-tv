@@ -1,0 +1,11 @@
+ul
+  li
+    .text-center
+      i
+        | *** Welcome to Struct.tv ***
+  each message in messages
+    li
+      span.username
+        = message.sender
+      |  
+      =message.body

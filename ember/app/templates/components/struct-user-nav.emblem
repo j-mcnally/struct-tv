@@ -1,0 +1,17 @@
+if session.isAuthenticated
+  li.dropdown
+    a.dropdown-toggle data-toggle="dropdown" href="#" 
+      = session.currentUser.username
+      span.caret
+    ul.dropdown-menu role="menu" 
+      li
+        link-to "profile" | Profile
+      li
+        link-to "streams.new"  | Start Streaming
+      li.divider
+      li
+        a href="/logout" Logout
+else
+  li
+    a click="loginAction" href="#"
+      | Login

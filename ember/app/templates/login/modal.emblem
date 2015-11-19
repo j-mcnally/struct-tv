@@ -1,0 +1,23 @@
+.modal.show
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close click="closeLoginModal" type="button" 
+          span.black &times;
+          span.black.sr-only Close
+        h4.modal-title Login
+      .modal-body
+        .text-center
+          .row
+            a href="/oauth/github"
+              button.btn.btn-primary
+                img.github-logo src="js/app/assets/images/github.png"
+                | Login With Github
+          .row.ortext
+            | - OR -
+          .row
+            a href="/oauth/meetup"
+              button.btn.btn-primary
+                img.meetup-logo src="js/app/assets/images/meetup.png"
+                | Login With Meetup
+        

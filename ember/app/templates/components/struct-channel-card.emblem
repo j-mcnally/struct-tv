@@ -1,0 +1,8 @@
+if channel
+  .media.nopadding
+    .pull-left
+      img.media-object.thumbnail src=channel.image
+    .media-body
+      h4.media-heading
+        =channel.title
+      =channel.textDescription

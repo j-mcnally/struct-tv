@@ -1,0 +1,6 @@
+struct-navbar session=session loginAction="openLoginModal"
+
+.container-fluid.nopadding
+  = outlet
+
+= outlet 'modal'

@@ -1,0 +1,20 @@
+.container
+  .page-header
+    h1
+      | Live Now
+  .row
+    each stream in liveNow
+      .col-md-3.col-sm-6.col-xs-12.margin-top
+        link-to 'streams.show' stream.id classNames="nohover"
+          stream-card stream=stream
+
+  .page-header
+    h1
+      | Previously Recorded
+  .row
+    each stream in old
+      .col-md-3.col-sm-6.col-xs-12.margin-top
+        link-to 'streams.show' stream.id classNames="nohover"
+          stream-card stream=stream
+
+.bottom-spaced

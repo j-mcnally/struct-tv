@@ -1,0 +1,6 @@
+.row.nopadding
+  .col-md-8.nopadding
+    struct-stream stream=model me=session.currentUser play_recording=play_recording isPlaying=isPlaying
+  .col-md-4.nopadding
+    struct-chat stream=model store=store messages=messages
+    struct-chat-input messages=messages stream=model store=store me=session.currentUser

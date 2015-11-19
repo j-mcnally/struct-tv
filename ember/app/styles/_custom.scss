@@ -1,0 +1,182 @@
+.navbar-brand {
+  padding-top: 5px;
+}
+
+.float-left {
+  float: left;
+}
+
+nav {
+  .form-group {
+    margin-bottom: 0;
+  }
+  .collapsing, .collapse.in {
+    .navbar-form {
+      display: none;
+    }
+  }
+}
+.navbar {
+  margin-bottom: 0;
+}
+
+.hero {
+  width: 80%;
+  margin: auto;
+}
+
+.hero-helper {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.yellow {
+  color: #ECCA00;
+}
+
+.black-background {
+  color: #919191;
+  background-color: $navbar-default-bg;
+}
+
+.black {
+  color: #000;
+}
+
+.thumbnail {
+  width: 64px;
+  height: 64px;
+}
+
+.nopadding {
+  margin: 0;
+  padding: 0;
+}
+
+.scrolling {
+  height: 100vh;
+  overflow: auto;
+}
+
+.offline-player {
+  width: 100%;
+  padding-top: 150px;
+  height:350px;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  background-color: #1a1a1a;
+}
+
+.chat, .chat-message-input {
+  font-family: 'VT323', 'Courier New';
+  font-size: 18px;
+  border-left: 1px solid #212121;
+  background-color: #FDF6E1;
+}
+
+.chat-message-input {
+  height: 43px;
+}
+
+.chat {
+  width: 100%;
+  height: 100vh;
+  font-family: 'VT323', 'Courier New';
+  font-size: 18px;
+  overflow: auto;
+  border-left: 1px solid #212121;
+  ul {
+    list-style: none;
+    padding-left: 10px;
+  }
+  color: #667B84;
+  .username {
+    color: #C94E47;
+    font-weight: bold;
+  }
+  ul, li {
+    width: 100%
+  }
+}
+.margin-top {
+  margin-top: 20px;
+}
+
+.pad-top {
+  padding-top: 20px;
+}
+
+.form-control.description {
+  height: 500px;
+}
+
+.pad-right {
+  padding-right: 20px;
+}
+.padded {
+  padding-left: 20px;
+}
+
+.streamkey {
+  font-size: 14px;
+}
+
+.bottom-spaced {
+  clear: both;
+  padding-bottom: 30px;
+}
+.pad-card {
+  padding-right: 20px;
+}
+
+.nohover {
+  text-decoration: none !important;
+}
+
+.stream-card {
+  .card-image {
+    width: 100%;
+  }
+  padding: 20px;
+  overflow: hidden;
+  height: 450px;
+  color: $gray-lighter;
+  background-color: $gray-darker;
+  display: block;
+}
+@media (max-width: $container-desktop) { 
+  .navbar-form {
+    display: none;
+  }
+}
+
+footer.footer {
+  padding-top: 20px;
+  font-size: 24px;
+  height: 60px;
+  margin-top: 80px;
+}
+
+.slick-next {
+  right: 0px;
+}
+
+.slick-prev {
+  left: 0px;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #F0C702;
+}
+
+.github-logo {
+  height: 40px;
+  padding-right: 10px;
+}
+
+.meetup-logo {
+  height: 40px;
+  padding-right: 10px;
+}
+

@@ -1,0 +1,7 @@
+if canEdit
+  if editing
+    a.btn.btn-default click="cancel"
+      | Cancel
+  else
+    a.btn.btn-primary click="edit"
+      | Edit

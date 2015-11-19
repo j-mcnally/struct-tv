@@ -1,0 +1,6 @@
+img class="card-image" src=stream.user.avatar_url
+.username
+  = stream.user.username
+strong
+  = stream.title
+struct-channel-card channel=stream.channel

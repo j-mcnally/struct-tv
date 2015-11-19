@@ -1,0 +1,20 @@
+if hasPages
+  ul.pagination
+    li class=canMoveBack::disabled
+      if canMoveBack
+        link-to (query-params page=prevPage)
+          | &laquo;
+      else
+        a
+          | &laquo;
+    each pages
+      li class=current:active
+        link-to (query-params page=num)
+          =num
+    li class=canMoveForward::disabled
+      if canMoveForward
+        link-to (query-params page=nextPage)
+          | &raquo;
+      else
+        a
+          | &raquo;

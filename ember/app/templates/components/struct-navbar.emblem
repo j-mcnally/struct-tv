@@ -1,0 +1,24 @@
+nav.navbar.navbar-default role="navigation" 
+  .container-fluid
+    /! Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      link-to .navbar-brand 'index'
+        img src="js/app/struct.png"
+    /! Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li
+          link-to 'streams.popular' | Popular
+        / li
+        /   link-to 'streams.following' | Following
+       
+      / form.navbar-form.navbar-left role="search" 
+      /   .form-group.float-left
+      /     input.form-control placeholder="Search" type="text" 
+      /   button.btn.btn-default.float-left type="submit" Go
+      struct-user-nav session=session loginAction="loginAction"

@@ -1,0 +1,129 @@
+.container
+  .row
+    .page-header
+      h1
+        | Stream Now
+
+  .row
+    .col-lg-6
+      .well.bs-component
+        form.form-horizontal
+          fieldset
+            legend New Stream
+            .form-group
+              label.col-lg-2.control-label for="inputChannel" Channel
+
+              if session.currentUser.hasGithub
+                .col-lg-10
+                  ic-autocomplete value=repo_id on-input="filterReposWithXHR" on-select="updateRepo" placeholder="Type a repo name"
+                    each repo in repos
+                      ic-autocomplete-option value=repo.id label=repo.name
+                        = repo.name
+                        |  -  
+                        i
+                          = repo.full_name
+                    else
+                      if filterWorking
+                        div
+                          | Searching...
+                      else
+                        div
+                          | No repos found.
+                  if repo
+                    .media
+                      .pull-left
+                        img.media-object.thumbnail src=repo.owner.avatar_url
+                      .media-body
+                        h4.media-heading
+                          = repo.full_name
+                        = repo.description
+                  else
+                    span.help-block Channels are usually just github repos, you can select any opensource public repository and start broadcast content. If your are giving a screen cast about how to use Sidekiq you would probably select sidekiq as your channel, or optionally rails.
+              
+              if session.currentUser.hasMeetup
+                .col-lg-10
+                  ic-autocomplete value=meetup_id on-input="filterMeetupsWithXHR" on-select="updateMeetup" placeholder="Type a Meetup group name"
+                    each meetup in meetups
+                      ic-autocomplete-option value=meetup.id label=meetup.name
+                        = meetup.name
+                    else
+                      if filterWorking
+                        div
+                          | Searching...
+                      else
+                        div
+                          | No Groups found.
+                  if meetup
+                    .media
+                      .pull-left
+                        img.media-object.thumbnail src=meetup.image
+                      .media-body
+                        h4.media-heading
+                          = meetup.full_name
+                        = meetup.cleanDesc
+                  else
+                    span.help-block Channels are Meetup groups. Pick your meetup group, fill out your meetup's title/topic and stream.
+            .form-group
+              label.col-lg-2.control-label for="inputTitle" Title
+              .col-lg-10
+                Ember.TextField classNames="form-control" placeholder="Topic of stream" value=model.title
+
+            .form-group
+              label.col-lg-2.control-label for="textArea"  Description
+              .col-lg-10
+                Ember.TextArea classNames="form-control" row=5 value=model.description
+                span.help-block Information about this broadcast / topics covered.
+            
+            .form-group
+              .col-lg-10.col-lg-offset-2
+                button.btn.btn-primary type="submit" click="submit"  Go Live!
+    if session.currentUser.current_stream
+      .col-lg-5.col-lg-offset-1
+        .row
+          h2.col-xs-12
+            | Current Stream
+        .row
+          h4.col-xs-12
+            link-to 'streams.show' session.currentUser.current_stream.id
+              =session.currentUser.current_stream.title
+        .row
+          .col-xs-12
+            == session.currentUser.current_stream.formattedDescription
+        .row
+          .col-xs-12
+            struct-channel-card channel=session.currentUser.current_stream.channel
+        .row
+          .col-xs-12
+            label.control-label
+              | Share this stream
+            .clearfix
+            share-twitter data-url=session.currentUser.current_stream.publicUrl data-text=session.currentUser.current_stream.shareText data-size="large" data-hashtags="structtv"
+        .row
+          .col-xs-12
+            label.control-label
+              | Streaming Endpoint
+            Ember.TextField classNames="form-control streamkey" value="rtmp://s.struct.tv/live"
+        .row
+          .col-xs-12
+            label.control-label
+              | Streaming Key
+            Ember.TextField classNames="form-control streamkey" value=session.currentUser.current_streamkey
+        .row
+          .col-xs-12
+            label.control-label
+              | Download free streaming software
+            .clearfix
+            a href="https://obsproject.com/" target="_blank"
+              | https://obsproject.com/
+        .row
+          .col-xs-12
+            label.control-label
+              | Need Help?
+            .clearfix
+            link-to "pages.show" "how-to-obs"
+              | How to stream using OBS
+
+
+.bottom-spaced
+
+        

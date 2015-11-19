@@ -1,0 +1,50 @@
+.jumbotron.black-background
+  .text-center
+    img.hero src="js/app/struct-hero.png"
+    p.hero-helper
+      | Con.
+      span.yellow
+        | struct
+      |  ●  
+      | In.
+      span.yellow
+        | struct
+      |  ●  
+      | Unob.
+      span.yellow
+        | struct
+      | .ed
+
+.container
+  if stream
+    .well
+      .row
+        .col-md-7
+          strobe-player stream=stream isPlaying=true width=472 height=295
+        .col-md-5
+          .row
+            h4.col-xs-8
+              link-to 'streams.show' stream.id
+                = stream.title
+          .row
+            p.col-xs-8
+              =stream.description
+          .row
+            .col-xs-8
+              struct-channel-card channel=stream.channel
+.container
+  .row
+    .col-md-6
+      ul
+        strong What is Struct.tv?
+        li: | Struct is about sharing knowledge, making your work with open source accessible and free in ways a simple code repository cannot.
+        li: | Struct's goal is to more easily facilitate screen casts, meetup groups, and code Q&A's. 
+        li: | We want you to stream and create as much content as you want, for free. While in beta there will be no advertising, however we are evaluating multiple strategies to monotize with you as our partners. 
+    .col-md-6
+      ul
+        strong Getting Started
+        li: | Click sign in in the upper right to login with your github account.
+        li: | Edit your profile to configure our service for your needs.
+        li: | Click start streaming under your name to launch your first screen cast.
+        li: | Share your stream url on twitter or other social networks.
+
